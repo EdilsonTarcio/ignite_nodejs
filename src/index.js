@@ -73,7 +73,7 @@ app.get("/statement", verifyIfExistsAccountCPF, (request, response) => {
   //recuperando o valor de customer de dentro do middleware
 
   return response.json(customer.statement);
-  // caso ache irá trazer o statement referente o cpf
+  // caso ache irá trazer o statement referente o cpf do usuario
 
 });
 
