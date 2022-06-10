@@ -39,7 +39,7 @@ function getBalance(statement) {
     } else {
       return acc - operation.amount
     }
-  }, 0);
+  }, 0); //valor que vai iniciar o reduce
   return balance;
 }
 
@@ -104,7 +104,7 @@ app.post("/withdaw", verifyIfExistsAccountCPF, (request, response) => {
 
   const balance = getBalance (customer.statement);
 
-  if (balance < amount) {
+  if (balance < amount) { //verifica se o valor do saque é menor do que tem em conta
     return response.status(400).json({error: "Saldo insuficiente!"});
   }
 
@@ -118,6 +118,5 @@ app.post("/withdaw", verifyIfExistsAccountCPF, (request, response) => {
 
   return response.status(201).send();
 });
-
 
 app.listen(3333);
