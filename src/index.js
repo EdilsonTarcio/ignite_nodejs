@@ -119,4 +119,16 @@ app.post("/withdaw", verifyIfExistsAccountCPF, (request, response) => {
   return response.status(201).send();
 });
 
+app.get("/statement/date", verifyIfExistsAccountCPF, (request, response) => {
+  const { customer } = request;
+  //recuperando o valor de customer de dentro do middleware
+
+  const { date } = request.query;
+  const dateformat = new Date();
+
+  return response.json(customer.statement);
+  // caso ache irá trazer o statement referente o cpf do usuario
+
+});
+
 app.listen(3333);
